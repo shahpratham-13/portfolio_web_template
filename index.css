@@ -1,0 +1,660 @@
+/*》》》》》》》》》》》》》》》
+  Google Fonts Import Link
+》》》》》》》》》》》》》》》*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&display=swap');
+
+/*》》》》》》》》》》》》》》》
+  Default CSS code & CSS Variable start
+》》》》》》》》》》》》》》》*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+  /*62.5% = 1rem = 10px*/
+}
+a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+li{
+  list-style: none;
+}
+:root{
+  --poppin: 'Poppins', sans-serif;
+  --josefin: 'Josefin Sans', sans-serif;
+  --shadow: #DCDCDC;
+  --bg: #3cb4fc;
+  --para: #5A5A5D;
+  --bgTextColor: #FFFFFF;
+}
+/*》》》》》》》》》》》》》》》
+  Reusable CSS start
+》》》》》》》》》》》》》》》*/
+.btn{
+  font-family: var(--poppin);
+  background: var(--bg);
+  color: var(--bgTextColor);
+  padding: 0.7rem 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border: 0.2rem solid var(--bg);
+  transition: all 0.2s linear;
+}
+.btn:hover,.btn:active{
+  background: var(--bgTextColor);
+  color: var(--bg);
+  box-shadow: 0rem 0.4rem 0.5rem 0 var(--shadow);
+}
+.commonHeading{
+  font-family: var(--poppin);
+  font-size: 3rem;
+  position: relative;
+  padding: 1rem 0;
+  z-index: -1;
+}
+.commonHeading::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  /*border-radius: 50%;*/
+  background: var(--bg);
+}
+.commonHeading::after{
+  content: "";
+  position: absolute;
+  bottom: 0.4rem;
+  left: 1rem;
+  width: 10rem;
+  height: 0.2rem;
+  background: var(--bg);
+}
+.infoHeading{
+  font-family: var(--josefin);
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+.para{
+  font-size: 1.7rem;
+  font-family: var(--poppin);
+  color: var(--para);
+}
+ion-icon{
+  z-index: -1;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-c{
+  flex-direction: column;
+}
+/*》》》》》》》》》》》》》》》
+  Preloader Section CSS start
+》》》》》》》》》》》》》》》*/
+.loader{
+  background: #fff url('preloader.gif') no-repeat center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+/*》》》》》》》》》》》》》》》
+  Header Section CSS start
+》》》》》》》》》》》》》》》*/
+.header{
+  background: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 1rem 0 var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.header .logo{
+  width: 15rem;
+}
+.header .menuIcon{
+  font-size: 3rem;
+  cursor: pointer;
+}
+.header .navbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 70vh;
+  z-index: 5;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.header .navbar .closeMenu{
+  font-size: 3.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  transition: background 0.2s linear;
+}
+.header .navbar .closeMenu:hover{
+  background: white;
+}
+.header .navbar .navbarList li{
+  font-size: 3.5rem;
+  font-family: var(--poppin);
+  text-align: center;
+  margin:0 0 1rem 0;
+  transition: background 0.2s linear;
+  border-radius: 1.5rem;
+  padding: 0.2rem 0.4rem;
+}
+.header .navbar ul li:hover{
+  background: white;
+}
+.toogle{
+  transform: translateY(-70vw);
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/*》》》》》》》》》》》》》》》
+  Hero Section CSS start
+》》》》》》》》》》》》》》》*/
+.main .heroSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.main .heroSection .heroImage{
+  width: 15rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5rem var(--bgTextColor),0 0 5rem 0 var(--shadow);
+}
+.main .heroSection .heroInfo h6{
+  margin: 0 auto;
+  font-family: var(--josefin);
+  color: var(--para);
+  width: 0ch;
+  font-weight: lighter;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  animation: write 5s steps(11) infinite;
+  border-right: 0.1rem solid var(--para);
+}
+@keyframes write{
+  0%{
+    width: 0ch;
+  }
+  50%{
+    width: 11ch;
+  }
+}
+.main .heroSection .heroInfo .mainHeading{
+  font-family: var(--poppin);
+  font-size: 3.5rem;
+  width: 23rem;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  line-height: 4.5rem;
+  text-transform: capitalize;
+}
+.main .heroSection .heroInfo p{
+  width: 30rem;
+  text-align: center;
+}
+.main .heroSection .cvButton{
+  background: var(--bgTextColor);
+  border: 0.2rem solid var(--bg);
+  color: var(--bg);
+  transition: all 0.2s linear;
+}
+.main .heroSection .cvButton:hover,.main .heroSection .cvButton:active{
+  background: var(--bg);
+  color: var(--bgTextColor);
+}
+
+/*》》》》》》》》》》》》》》》
+  What I Do Section CSS start
+》》》》》》》》》》》》》》》*/
+#whatIDo{
+  padding:0 2rem;
+  margin-top: 5rem;
+}
+#whatIDo .whatIDoSection{
+  margin-top: 1rem;
+  padding: 1rem;
+}
+#whatIDo .whatIDoSection .whatIDoInfoHeading{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+#whatIDo .whatIDoSection .whatIDoInfoHeading .icon{
+  color: var(--bgTextColor);
+  font-size: 2.3rem;
+  background: var(--bg);
+  padding: 1.2rem;
+  animation: wave 5s infinite ease-in-out;
+  position: relative;
+}
+#whatIDo .whatIDoSection .whatIDoInfoHeading .icon::before{
+  content: "";
+  width: 85%;
+  height: 85%;
+  border: 0.12rem solid var(--bgTextColor);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+   animation: wave 4.7s infinite ease-in-out;
+}
+#whatIDo .whatIDoSection .whatIDoPara{
+  margin-left: 5rem;
+  margin-top: 0.5rem;
+}
+
+
+/*》》》》》》》》》》》》》》》
+  About Me Section CSS start
+》》》》》》》》》》》》》》》*/
+#aboutMe{
+  padding: 0 2rem;
+  margin-top: 5rem;
+}
+#aboutMe .aboutImage{
+  width: 80vw;
+  display: block;
+  margin: 3rem auto;
+  box-shadow: -1rem -1rem 0 0 var(--bg);
+}
+#aboutMe .section{
+  margin-bottom: 3rem;
+}
+#aboutMe .section .sectionHead{
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-family: var(--josefin);
+  margin-bottom: 0.5rem;
+}
+#aboutMe .section .processbar{
+  width: 100%;
+  height: 1rem;
+  background: var(--shadow);
+  border-radius: 10rem;
+  z-index: -1;
+  position: relative;
+}
+#aboutMe .section .processbar::before{
+  content: "";
+  width: 95%;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bg);
+  border-radius: 10rem;
+}
+#aboutMe .section .processbar span{
+  position: absolute;
+  top: 2rem;
+  left: 90%;
+  background: var(--bg);
+  color: var(--bgTextColor);
+  font-size: 1.3rem;
+  padding: 0.2rem 0.5rem;
+}
+#aboutMe .section .processbar span::before{
+  content: "";
+  position: absolute;
+  bottom: 1.7rem;
+  left: 1rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--bg);
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  z-index: -1;
+}
+#aboutMe .section-2 .processbar::before{
+  width: 90%;
+}
+#aboutMe .section-2 .processbar span{
+  left: 85%;
+}
+
+#aboutMe .section-3 .processbar::before{
+  width: 80%;
+}
+#aboutMe .section-3 .processbar span{
+  left: 75%;
+}
+
+#aboutMe .section-4 .processbar::before{
+  width: 86%;
+}
+#aboutMe .section-4 .processbar span{
+  left: 81%;
+}
+
+#aboutMe .section-5 .processbar::before{
+  width: 93%;
+}
+#aboutMe .section-5 .processbar span{
+  left: 88%;
+}
+#aboutMe .section-6 .processbar::before{
+  width: 88%;
+}
+#aboutMe .section-6 .processbar span{
+  left: 83%;
+}
+
+/*》》》》》》》》》》》》》》》
+  counter section start
+》》》》》》》》》》》》》》》*/
+.counterSection{
+  background: var(--bg);
+  width: 100vw;
+  height: 45rem;
+  margin-top: 10rem;
+  margin-bottom: 4rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0% 100% 0% 100% / 63% 38% 62% 37% ;
+}
+.counterSection .center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counterSection .counterElem .counterHeading{
+  font-family: var(--poppin);
+  color: var(--bgTextColor);
+  font-size: 3rem;
+}
+.counterSection .counterElem .counterPara{
+  font-family: var(--poppin);
+  color: var(--bgTextColor);
+  font-size: 2rem;
+}
+
+/*》》》》》》》》》》》》》》》
+  Scroll To Top section start
+》》》》》》》》》》》》》》》*/
+.scrollTop{
+  width: 6rem;
+  height: 6rem;
+  background: var(--bg);
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border: 0.2rem solid var(--bgTextColor);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wave 5s infinite;
+  transform: translateY(10rem);
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+@keyframes wave{
+ /* 0%{
+    border-radius:  60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50%{
+    border-radius:  30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100%{
+    border-radius:  60% 40% 30% 70% / 60% 30% 70% 40%;
+  }*/
+  0%{
+      border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    25%{ 
+      border-radius:58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+    50%{
+      border-radius:50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+    75%{
+      border-radius:33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+    100%{
+      border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+}
+.scrollTop .arrowUp{
+  font-size: 3rem;
+  color: var(--bgTextColor);
+}
+/*》》》》》》》》》》》》》》》
+  our services section start
+》》》》》》》》》》》》》》》*/
+.testimonials{
+  margin-bottom: 3rem;
+  position: relative;
+}
+.testimonials .para{
+  margin-left: 2rem;
+}
+.testimonials .commonHeading{
+  margin: 0.5rem 2rem;
+}
+.testimonials .testimonialSec .card{
+  margin: 1rem auto;
+  width: 85vw;
+  background: var(--bgTextColor);
+  height: 20rem;
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 1rem 0 var(--shadow);
+  position: relative;
+}
+.testimonials .testimonialSec{
+  width: 400vw;
+  transition: all 0.5s linear;
+}
+.testimonials .container{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.testimonials .pagination{
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.testimonials .pagination .indicator{
+  width: 1rem;
+  height: 1rem;
+  background: var(--shadow);
+  border-radius: 50%;
+  margin: 0 0.3rem;
+  cursor: pointer;
+}
+.testimonials .pagination .indicator_1{
+  background: var(--bg);
+}
+.testimonials .testimonialSec .card .invertedComma{
+  width: 2.5rem;
+  position: absolute;
+}
+.testimonials .testimonialSec .card .comma_1{
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.testimonials .testimonialSec .card .comma_2{
+  bottom: 1.5rem;
+  right: 1.5rem;
+  transform: rotate(180deg);
+}
+.testimonials .testimonialSec .card .cardInfo img{
+  width: 5rem;
+  border-radius: 50%;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: -0.5rem 0rem 0.5rem 0 var(--shadow);
+}
+.testimonials .testimonialSec .card .cardInfo div{
+  margin-left: 1rem;
+  margin-top: 15%;
+}
+.testimonials .testimonialSec .card .cardInfo div .cardPara{
+  font-family: var(--poppin);
+  color: var(--para);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  width: 55vw;
+}
+.testimonials .testimonialSec .card .cardInfo h2{
+  font-weight: 700;
+}
+
+/*》》》》》》》》》》》》》》》
+  Contact Us section start
+》》》》》》》》》》》》》》》*/
+.contactSection{
+  margin-top: 5rem;
+}
+.contactSection .commonHeading{
+  margin-left: 2rem;
+}
+.contactSection .contactForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 3rem;
+}
+.contactSection .contactForm .inputField{
+  margin: 0.7rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.contactSection .contactForm .input{
+  width: 25rem;
+  padding: 0.5rem 1rem;
+  margin-top: 0.2rem;
+  font-family: var(--poppin);
+  outline: none;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  border: 0.2rem solid var(--bg);
+}
+.contactSection .contactForm .messageDiv .message{
+  height: 15rem;
+  font-family: var(--poppin);
+  padding: 1rem;
+  outline: none;
+  margin-top: 0.2rem;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  border: 0.2rem solid var(--bg);
+}
+.contactSection .contactForm .label{
+  font-size: 1.7rem;
+  margin-left: 0.5rem;
+  font-family: var(--josefin);
+}
+.contactSection .contactForm .contactBtn{
+  padding:1rem 0;
+  font-size: 1.7rem;
+  border: none;
+  background: var(--bg);
+  color: var(--bgTextColor);
+  outline: none;
+  border-radius: 2rem;
+  width: 20rem;
+  display: block;
+  margin: 1rem auto;
+  font-family: var(--poppin);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*》》》》》》》》》》》》》》》
+  Footer section start
+》》》》》》》》》》》》》》》*/
+.footer{
+  background: var(--para);
+  height: 10rem;
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 0.4rem solid var(--shadow);
+}
+.footer .socialMedia ion-icon{
+  font-size: 2.5rem;
+  color: var(--bgTextColor);
+  margin: 0 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  padding: 0.2rem;
+}
+.footer .socialMedia .fbLogo:hover{
+  color: #008CFF;
+  border-radius: 50%;
+  background: var(--bgTextColor);
+  transform: scale(1.1);
+}
+.footer .socialMedia .twitterLogo:hover {
+  color: #0069FF;
+  border-radius: 10%;
+  background: var(--bgTextColor);
+  transform: scale(1.2);
+}
+.footer .socialMedia .linkedInLogo:hover {
+  color: #0069FF;
+  border-radius: 10%;
+  background: var(--bgTextColor);
+  transform: scale(1.2);
+}
+.footer .socialMedia .instaLogo:hover {
+  background: linear-gradient(145deg, #ffc838, #fb3958, #458eff);
+  color: white;
+  border-radius: 27%;
+  transform: scale(1.2);
+}
+.footer .copyright .copyPara{
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: var(--bgTextColor);
+  font-family: var(--poppin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .copyright .copyPara span{
+  font-size: 2.3rem;
+}
